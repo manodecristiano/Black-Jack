@@ -18,8 +18,15 @@ let pointsComputer=0;
 
 
 const btnGive = document.querySelector('#btnGive');
+const btnStop = document.querySelector('#btnStop');
 const divCardGamer = document.querySelector('#gamer-cards')
+const divCardComputer = document.querySelector('#computer-cards')
+
 const smalls = document.querySelectorAll('small');
+
+
+
+
 
 
 const createDeck = () => {
@@ -66,11 +73,33 @@ const value_card =(card) => {
             
 }
 
+const disableButtons= () => {
+    btnGive.disabled = true;
+    btnStop.disabled = true;
+}
+
+//computer Time
+const computerTime = (minimumPoints) => {
 
 
-createDeck();
-const value = value_card(give_meCard());
-//console.log({value});
+    do{
+        const card= give_meCard();
+        pointsComputer = pointsComputer + value_card(card);
+        smalls[1].innerText=pointsComputer;
+        const imgCard = document.createElement('img');
+        imgCard.src= `assets/cards/${card}.png`;
+        imgCard.classList.add('card-image');
+    
+        divCardComputer.append( imgCard );
+    if( minimumPoints > 21) {
+        break;
+    }
+
+    }while( ( pointsComputer < minimumPoints ) && ( minimumPoints <= 21 ) );
+
+
+}
+
 
 
 
@@ -80,8 +109,47 @@ btnGive.addEventListener('click',() => {
     const card= give_meCard();
     pointsGamer = pointsGamer + value_card(card);
     smalls[0].innerText=pointsGamer;
+    const imgCard = document.createElement('img');
+    imgCard.src= `assets/cards/${card}.png`;
+    imgCard.classList.add('card-image');
+
+    divCardGamer.append( imgCard );
+
+    if( pointsGamer>21){
+
+        disableButtons();
+        console.log('lo siento TE PASASTE');
+        computerTime(pointsGamer);
+
+    }else if (pointsGamer ===21){
+
+        disableButtons();
+        console.log('21!BlackJack! GANASTE');
+        computerTime(pointsGamer);
+
+    }
     
-})
+});
+
+btnStop.addEventListener('click',() => {
+
+    disableButtons();
+    computerTime(pointsGamer);
+
+});
+
+
+createDeck();
+const value = value_card(give_meCard());
+console.log({value});
+
+
+
+
+
+
+
+
 
 
 
