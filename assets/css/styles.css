@@ -18,8 +18,10 @@ html, body{
     margin-left: -75px;
 }
 #gamer-cards, #computer-cards{
-   
     height: 240px;
+}
 
-
+.marc{
+    position:absolute;
+    left:97%;
 }
