@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blackjack</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -13,20 +15,20 @@
     <header class="title">
         Blackjack
     </header>
-    <div class="row mt-2" >
+    <div class="row mt-2">
         <div class="col text-center">
             <button id="btnNew" class="btn btn-danger">New Game</button>
-            <button id="btnGive" class="btn btn-primary">Give Card</button>
-            <button id="btnStop" class="btn btn-primary">Stop Card</button>
+            <button id="btnGive" disabled="disabled" class="btn btn-primary">Give Card</button>
+            <button id="btnStop" disabled="disabled" class="btn btn-primary">Stop Card</button>
         </div>
     </div>
 
     <div class="row container">
         <div class="col">
-            <h1>Player - <small>0</small></h1> 
-            <h3 class="marc">Wins <small>0</small></h3>
-            <div id="gamer-cards">
-            
+            <h1>Player - <small class="Small">0</small></h1>
+            <h3 class="marc">Wins <small class="globalPoints">0</small></h3>
+            <div id="gamer-cards" class="divCards">
+
             </div>
         </div>
     </div>
@@ -34,10 +36,10 @@
 
     <div class="row container">
         <div class="col">
-            <h1>Casino - <small>0</small></h1>
-            <h3 class="marc">Loses <small>0</small></h3>
-            <div id="computer-cards">
-                
+            <h1>Casino - <small class="Small">0</small></h1>
+            <h3 class="marc">Loses <small class="globalPoints">0</small></h3>
+            <div id="computer-cards" class="divCards">
+
             </div>
         </div>
     </div>
@@ -50,4 +52,5 @@
     <script src="assets/js/underscore-min.js"></script>
     <script src="assets/js/game.js"></script>
 </body>
+
 </html>
