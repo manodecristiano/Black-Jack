@@ -5,7 +5,9 @@
  * 2S = Two of Spades
  */
 
-(() => {
+const modul = (() => {
+  "use strict";
+
   const types = ["C", "D", "H", "S"],
     specials = ["A", "J", "Q", "K"];
 
@@ -14,8 +16,8 @@
   let pointsGamers = [];
   let compuTurn = 0;
 
-  let globalpointsGamer=0;
-    let globalpointsComputer = 0;
+  let globalpointsGamer = 0;
+  let globalpointsComputer = 0;
 
   //references
   const btnNew = document.querySelector("#btnNew"),
@@ -54,7 +56,7 @@
       }
     }
 
-    for (type of types) {
+    for (let type of types) {
       for (let spe of specials) {
         deck.push(spe + type);
       }
@@ -213,5 +215,5 @@
     disableButtons("btnNew&btnStop");
   });
 
-  return "Hola Mundo";
+  return { NewGame: initialize };
 })();
